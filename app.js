@@ -13,33 +13,28 @@ client.once('ready', () => {
     console.log('Iniciado com sucesso!');
 });
 
-function emoji (id) {
+function emoji(id) {
     return client.emojis.get(id).toString();
 }
 
-const data = new Date;
-const dia = data.getDate();
-const hora = data.getHours();
-const minuto = data.getMinutes();
-const mes = data.getMonth();
-const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
 
 
 client.on('message', message => {
 
-    if(message.content.toLowerCase() === 'fofa'){
+    if (message.content.toLowerCase() === 'fofa') {
         message.channel.send("😳");
     }
 
-    if(message.content.toLowerCase() === 'aron'){
+    if (message.content.toLowerCase() === 'aron') {
         message.channel.send(`Não, porfavor <:xorast:827327454644666378>`);
     }
 
-    if(message.content.toLowerCase() === 'novato'){
+    if (message.content.toLowerCase() === 'novato') {
         message.channel.send(`Sim, apenas isso... <:pxico:826431319255941150>`);
     }
 
-    try{
+    try {
 
         const prefix = process.env.PREFIX;
         if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -53,11 +48,17 @@ client.on('message', message => {
         }
 
         if (command === "time") {
+            const data = new Date;
+            const dia = data.getDate();
+            const hora = data.getHours();
+            const minuto = data.getMinutes();
+            const mes = data.getMonth();
+            const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
             message.reply(`Hoje é dia ${dia} de ${meses[mes]} e são ${hora} hora(s) e ${minuto} minuto(s)`);
         }
 
 
-    }  catch (ex) {
+    } catch (ex) {
         message.reply("Ocorreu um erro.");
     }
 })
