@@ -1,0 +1,31 @@
+{
+  "name": "discordjs",
+  "version": "1.0.0",
+  "description": "Discord Bot Nirayuki",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nirayuki/NirayukiBot"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nirayuki/NirayukiBot/issues"
+  },
+  "homepage": "https://github.com/Nirayuki/NirayukiBot#readme",
+  "dependencies": {
+    "@discordjs/opus": "^0.4.0",
+    "cron": "^1.8.2",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "prism-media": "^1.2.8",
+    "ytdl-core-discord": "^1.2.5"
+  },
+  "engines": {
+    "node": "v15.11.0"
+  }
+}
