@@ -48,7 +48,7 @@ client.on('message', message => {
 
     try {
 
-        const prefix = process.env.PREFIX;
+        const prefix = "~";
         if (!message.content.startsWith(prefix) || message.author.bot) return;
 
         const arguments = message.content.slice(prefix.length).trim().split(' ');
@@ -451,4 +451,6 @@ client.on('message', message => {
 })
 
 
-client.login(process.env.API_TOKEN);
+client.login(
+    "ODcwNzI4MzcwMTQzNTAyMzk3.YQQ-_A.ORyQ0kR95Z_3_i1TNmBNsJoLyI4"
+);
