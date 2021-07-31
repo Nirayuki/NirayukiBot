@@ -21,7 +21,7 @@ async function playQueue(connection) {
 
 
 client.once('ready', () => {
-    client.user.setActivity('Oi :)');
+    client.user.setActivity('Olá :) Prefix: ~');
     console.log('Iniciado com sucesso!');
 });
 
