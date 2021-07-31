@@ -9,6 +9,17 @@ let counter = {};
 let queue = [];
 
 
+async function playQueue(connection) {
+    connection.play(await ytdl(queue[0]), { type: 'opus' }).on("finish", () => {
+        console.log(queue)
+        queue = queue.filter(song => song != queue[0])
+        if (queue.length > 0) {
+            playQueue(connection);
+        }
+    });
+}
+
+
 client.once('ready', () => {
     client.user.setActivity('Oi :)');
     console.log('Iniciado com sucesso!');
@@ -43,6 +54,64 @@ client.on('message', message => {
         const arguments = message.content.slice(prefix.length).trim().split(' ');
         const command = arguments.shift().toLowerCase();
 
+        if (command === "play") {
+            const voice = message.member.voice;
+            const URL = arguments[0];
+
+            if (!voice.channelID) {
+                message.reply("É preciso estar em um canal de voz para utilizar esse comando.");
+                return;
+            }
+
+            if (!URL) {
+                message.reply("É preciso enviar a URL do vídeo para ser reproduzido");
+                return;
+            }
+
+            if (!queue[0]) {
+                queue.push(URL);
+                console.log(queue);
+                voice.channel.join().then((connection) => {
+                    try {
+                        playQueue(connection);
+                    } catch (ex) {
+                        message.reply("Erro ao reproduzir mídia");
+                        console.error(ex);
+                    }
+                });
+            } else {
+                queue.push(URL);
+                console.log(queue);
+            }
+        }
+
+        if (command === "leave") {
+            const voice = message.member.voice;
+
+            if (!voice.channelID) {
+                message.reply("É preciso estar em um canal de voz para utilizar esse comando.");
+                return;
+            }
+
+            voice.channel.leave();
+        }
+
+        if (command === "resetqueue") {
+            console.log("Resetando queue");
+            const voice = message.member.voice;
+
+            if (!voice.channelID) {
+                message.reply("É preciso estar em um canal de voz para utilizar esse comando.");
+                return;
+            }
+
+            queue.forEach(() => {
+                queue.pop();
+            })
+
+            message.reply("Queue resetada.");
+            voice.channel.leave();
+        }
 
         if (command === "ping") {
             message.reply("Pong!");
@@ -87,6 +156,22 @@ client.on('message', message => {
                         value: "Para dar aquela cantada no crush"
                     },
                     {
+                        name: "mamada",
+                        value: "Para dar aquela mamada no crush"
+                    },
+                    {
+                        name: '!play <url youtube>',
+                        value: "Reprodiz o audio do vídeo requisitado no canal de voz"
+                    },
+                    {
+                        name: '!leave',
+                        value: "Para o reprodução e saí do canal de voz"
+                    },
+                    {
+                        name: "!resetqueue",
+                        value: "Limpa a queue de reprodução"
+                    },
+                    {
                         name: "Em construção...",
                         value: "Novos comandos em breve!"
                     }
@@ -106,6 +191,41 @@ client.on('message', message => {
 
         }
 
+        if(command === "mamada") {
+            const user = message.mentions.users.first()
+
+            if (!user) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor('#FFFFFF')
+                    .setTitle("Mamada")
+                    .setAuthor('Nirayuki', 'https://cdn.discordapp.com/avatars/295607349652094977/1e1db24a040da737ad532aa9bb393b9d.png')
+                    .setDescription("Use esse comando para mamar alguém que você gosta")
+                    .addFields([
+                        {
+                            name: "Como usar ?",
+                            value: `\`\`~mamada <usuário> [usuário]\`\``
+                        },
+                        {
+                            name: "**Exemplos**",
+                            value: "⬇️"
+                        },
+                        {
+                            name: `Você deve marcar a uma pessoa para dar aquela mamada.`,
+                            value: `\`\`~mamada @Yukinira\`\``
+                        },
+                    ])
+
+                    return message.channel.send(embed)
+            }
+
+            const embed = new Discord.MessageEmbed()
+                .setColor('#FFFFFF')
+                .setDescription(`<@${message.author.id}> Mamou bem gostosinho <@${user.id}>`)
+                .setImage('https://media1.tenor.com/images/240820b9f5ba01dd4c109d80ba64514d/tenor.gif?itemid=11019877')
+
+            message.channel.send(embed)
+        }
+
         if(command === "cantada") {
             if (!message.content.startsWith(process.env.PREFIX)) {
                 return
@@ -116,8 +236,32 @@ client.on('message', message => {
             const user = message.mentions.users.first()
             const rn = Math.floor(Math.random() * 9) + 1
 
-            if (!user) return message.channel.send("Por favor, mencione um crush.")
-            
+            // if (!user) return message.channel.send("Por favor, mencione um crush.")
+
+            if (!user) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor('#FFFFFF')
+                    .setTitle("Cantada")
+                    .setAuthor('Nirayuki', 'https://cdn.discordapp.com/avatars/295607349652094977/1e1db24a040da737ad532aa9bb393b9d.png')
+                    .setDescription("Use esse comando para dar aquela cantada")
+                    .addFields([
+                        {
+                            name: "Como usar ?",
+                            value: `\`\`~cantada <usuário> [usuário]\`\``
+                        },
+                        {
+                            name: "**Exemplos**",
+                            value: "⬇️"
+                        },
+                        {
+                            name: `Você deve marcar a uma pessoa para dar a cantada.`,
+                            value: `\`\`~cantada @Yukinira\`\``
+                        },
+                    ])
+
+                    return message.channel.send(embed)
+            }
+
             const respostas = [
                 {id: 1, description: `<@${user.id}> Quando você for casar, me convida para ser o noivo?`},
                 {id: 2, description: `<@${user.id}> Você é doceira? Queria encomendar uns beijinhos.`},
@@ -142,7 +286,31 @@ client.on('message', message => {
             const user = message.mentions.users.first()
             const rn = Math.floor(Math.random() * 99) + 1
 
-            if (!user) return message.channel.send("Por favor, mencione uma waifu.")
+            // if (!user) return message.channel.send("Por favor, mencione uma waifu.")
+
+            if (!user) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor('#FFFFFF')
+                    .setTitle("Waifu")
+                    .setAuthor('Nirayuki', 'https://cdn.discordapp.com/avatars/295607349652094977/1e1db24a040da737ad532aa9bb393b9d.png')
+                    .setDescription("Use esse comando para ver se a pessoa é uma waifu")
+                    .addFields([
+                        {
+                            name: "Como usar ?",
+                            value: `\`\`~waifu <usuário> [usuário]\`\``
+                        },
+                        {
+                            name: "**Exemplos**",
+                            value: "⬇️"
+                        },
+                        {
+                            name: `Você deve marcar uma pessoa para ver se ela é sua waifu ou não.`,
+                            value: `\`\`~waifu @Yukinira\`\``
+                        },
+                    ])
+
+                    return message.channel.send(embed)
+            }
 
             if (rn >= 50) {
                 const count = Math.floor(Math.random() * 4) + 1
@@ -179,7 +347,31 @@ client.on('message', message => {
             const user = message.mentions.users.first()
             const rn = Math.floor(Math.random() * 99) + 1
 
-            if (!user) return message.channel.send("Por favor, mencione uma pessoa.")
+            // if (!user) return message.channel.send("Por favor, mencione uma pessoa.")
+
+            if (!user) {
+                const embed = new Discord.MessageEmbed()
+                    .setColor('#FFFFFF')
+                    .setTitle("Ship")
+                    .setAuthor('Nirayuki', 'https://cdn.discordapp.com/avatars/295607349652094977/1e1db24a040da737ad532aa9bb393b9d.png')
+                    .setDescription("Use esse comando para testar sua sorte no amor")
+                    .addFields([
+                        {
+                            name: "Como usar ?",
+                            value: `\`\`~ship <usuário> [usuário]\`\``
+                        },
+                        {
+                            name: "**Exemplos**",
+                            value: "⬇️"
+                        },
+                        {
+                            name: `Você deve marcar uma pessoa para testar o seu webamor.`,
+                            value: `\`\`~ship @Yukinira\`\``
+                        },
+                    ])
+
+                    return message.channel.send(embed)
+            }
 
             async function getCanva(props) {
                 const canvas = Canvas.createCanvas(700, 250)
@@ -253,6 +445,7 @@ client.on('message', message => {
         }
 
     } catch (ex) {
+        console.log(ex);
         message.reply("Ocorreu um erro.");
     }
 })

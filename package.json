@@ -24,6 +24,7 @@
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "prism-media": "^1.2.8",
+    "ytdl-core": "^4.9.0",
     "ytdl-core-discord": "^1.2.5"
   },
   "engines": {
