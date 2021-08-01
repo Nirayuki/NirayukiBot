@@ -81,6 +81,10 @@ module.exports = {
                     value: "Para parar os ping"
                 },
                 {
+                    name: "Slap",
+                    value: "Da um tapão na pessoa"
+                },
+                {
                     name: "Em construção...",
                     value: "Novos comandos em breve!"
                 }
