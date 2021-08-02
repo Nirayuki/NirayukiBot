@@ -25,10 +25,12 @@ module.exports = {
             { link: 'https://media1.tenor.com/images/d21356553d5ac843bedb5cc1a3971da4/tenor.gif?itemid=13337668' },
             { link: 'https://media1.tenor.com/images/d1a11805180742c70339a6bfd7745f8d/tenor.gif?itemid=4883557' },
             { link: 'https://media1.tenor.com/images/37889be53ab8bee0bb9cb38a333fbf3e/tenor.gif?itemid=14375361' },
+            { link: 'https://cdn.discordapp.com/attachments/805639782352289802/871431808800129164/c5243a46b7fa99f44c1b68726631e141.gif' },
+            
         ]
 
         function getCount() {
-            return Math.floor(Math.random() * 20)
+            return Math.floor(Math.random() * 21)
         }
 
 
@@ -78,7 +80,7 @@ module.exports = {
                         .setDescription(`<:kimochi:813877016742723595> <@${target.id}> retribuiu bem gostosinho <@${message.author.id}>`)
                         .setImage(kiss[math].link)
 
-                        message.channel.send(embed);
+                        message.channel.send(`<@${message.author.id}> você recebeu um beijão`,embed);
                 }
             })
         });

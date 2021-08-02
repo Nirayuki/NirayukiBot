@@ -5,6 +5,14 @@ module.exports = {
     execute(client, message) {
         const Discord = require('discord.js');
         const user = message.mentions.users.first()
+        const mamada = [
+            {link: "https://cdn.discordapp.com/attachments/805639782352289802/871431925556977694/tumblr_n1ezcbsEfa1sjwyaco6_500.gif"},
+            {link: 'https://media1.tenor.com/images/240820b9f5ba01dd4c109d80ba64514d/tenor.gif?itemid=11019877'}
+        ]
+
+        function getCount() {
+            return Math.floor(Math.random() * 2)
+        }
         if (!user) {
             const embed = new Discord.MessageEmbed()
                 .setColor('#FFFFFF')
@@ -29,10 +37,12 @@ module.exports = {
             return message.channel.send(embed)
         }
 
+        const math = getCount()
+
         const embed = new Discord.MessageEmbed()
             .setColor('#FFFFFF')
             .setDescription(`<@${message.author.id}> Mamou bem gostosinho <@${user.id}>`)
-            .setImage('https://media1.tenor.com/images/240820b9f5ba01dd4c109d80ba64514d/tenor.gif?itemid=11019877')
+            .setImage("https://cdn.discordapp.com/attachments/805639782352289802/871431925556977694/tumblr_n1ezcbsEfa1sjwyaco6_500.gif")
 
         message.channel.send(embed)
     }

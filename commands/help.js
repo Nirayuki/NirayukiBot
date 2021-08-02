@@ -4,7 +4,7 @@ const pagination = require('discord.js-pagination');
 module.exports = {
     name: "help",
     description: 'Mostras os comandos atuais',
-    async execute(client, message) {
+    execute(client, message) {
         
         
         const author = message.author;
@@ -37,6 +37,8 @@ module.exports = {
 
         const page2 = new Discord.MessageEmbed()
             .setColor('#FFFFFF')
+            .setAuthor('Nirayuki', 'https://cdn.discordapp.com/avatars/295607349652094977/1e1db24a040da737ad532aa9bb393b9d.png')
+            .setDescription(`Qualquer duvida entre em contato com Nira#8054`)
             .addFields([
                 {
                     name: "cantada",
@@ -56,9 +58,14 @@ module.exports = {
                 },
                 
             ])
+            .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`)
+            .setTimestamp()
+            .setFooter('With ❤ by Nira#8054', 'https://imgur.com/bmkIYv4.png');
 
         const page3 = new Discord.MessageEmbed()
             .setColor('#FFFFFF')
+            .setAuthor('Nirayuki', 'https://cdn.discordapp.com/avatars/295607349652094977/1e1db24a040da737ad532aa9bb393b9d.png')
+            .setDescription(`Qualquer duvida entre em contato com Nira#8054`)
             .addFields([
                 // {
                 //     name: '!leave',
@@ -85,15 +92,34 @@ module.exports = {
                     value: "Da um tapão na pessoa"
                 },
                 {
+                    name: "Cinema",
+                    value: "Comando para sortear um filme."
+                }
+            ])
+            .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`)
+            .setTimestamp()
+            .setFooter('With ❤ by Nira#8054', 'https://imgur.com/bmkIYv4.png');
+
+            const page4 = new Discord.MessageEmbed()
+            .setColor('#FFFFFF')
+            .setAuthor('Nirayuki', 'https://cdn.discordapp.com/avatars/295607349652094977/1e1db24a040da737ad532aa9bb393b9d.png')
+            .setDescription(`Qualquer duvida entre em contato com Nira#8054`)
+            .addFields([
+                {
                     name: "Em construção...",
                     value: "Novos comandos em breve!"
                 }
             ])
+            .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`)
+            .setTimestamp()
+            .setFooter('With ❤ by Nira#8054', 'https://imgur.com/bmkIYv4.png');
+
 
         const pages = [
             page1,
             page2,
-            page3
+            page3,
+            page4,
         ]
 
         const emoji = ["◀️", "▶️"]

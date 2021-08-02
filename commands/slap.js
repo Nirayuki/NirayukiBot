@@ -71,7 +71,7 @@ module.exports = {
                             .setDescription(`<:kimochi:813877016742723595> <@${target.id}> retribuiu o tapão <@${message.author.id}>`)
                             .setImage(slap[math].link)
     
-                            message.channel.send(embed);
+                            message.channel.send(`<@${message.author.id}> você recebeu um tapão`, embed);
                     }
                 })
             });
