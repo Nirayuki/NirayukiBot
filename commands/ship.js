@@ -51,14 +51,14 @@ module.exports = {
 
         if (user.id === "630205563480965140" || user.id === "788244423921893387") {
             // getDuda()
-            ctx.drawImage(heart, 150, 25, 150, 150)
+            ctx.drawImage(heart, 210, 25, 150, 150)
             const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'love.png')
             const embed = new Discord.MessageEmbed()
                 .setColor('#FFFFFF')
                 .setDescription(`💕 ${message.author.username} + ${user.username} = 100% 💕`)
                 .attachFiles(attachment)
                 .setImage(`attachment://love.png`)
-            return message.channel.send(embed)
+                return message.channel.send(`<@${message.author.id}>`,embed)
             // return message.channel.send(`💕 ${message.author.username} + ${user.username} = 100% 💕`, attach)
 
         } else {
@@ -72,7 +72,7 @@ module.exports = {
                     .setDescription(`💕 ${message.author.username} + ${user.username} = ${rn}% 💕`)
                     .attachFiles(attachment)
                     .setImage(`attachment://love.png`)
-                return message.channel.send(embed)
+                return message.channel.send(`<@${message.author.id}>`,embed)
                 // return message.channel.send(`💕 ${message.author.username} + ${user.username} = ${rn}% 💕`, attach)
 
             } else {
@@ -84,7 +84,7 @@ module.exports = {
                     .setDescription(`💔 ${message.author.username} + ${user.username} = ${rn}% 💔`)
                     .attachFiles(attachment)
                     .setImage(`attachment://love.png`)
-                return message.channel.send(`<@${user.id}>`, embed)
+                    return message.channel.send(`<@${message.author.id}>`,embed)
                 // return message.channel.send(`💔 ${message.author.username} + ${user.username} = ${rn}% 💔`, attach)
 
             }

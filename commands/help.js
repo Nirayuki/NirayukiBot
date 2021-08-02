@@ -58,9 +58,9 @@ module.exports = {
                 },
                 
             ])
-            .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`)
-            .setTimestamp()
-            .setFooter('With ❤ by Nira#8054', 'https://imgur.com/bmkIYv4.png');
+            // .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`)
+            // .setTimestamp()
+            // .setFooter('With ❤ by Nira#8054', 'https://imgur.com/bmkIYv4.png');
 
         const page3 = new Discord.MessageEmbed()
             .setColor('#FFFFFF')
@@ -110,9 +110,9 @@ module.exports = {
                     value: "Novos comandos em breve!"
                 }
             ])
-            .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`)
-            .setTimestamp()
-            .setFooter('With ❤ by Nira#8054', 'https://imgur.com/bmkIYv4.png');
+            // .setThumbnail(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`)
+            // .setTimestamp()
+            // .setFooter('With ❤ by Nira#8054', 'https://imgur.com/bmkIYv4.png');
 
 
         const pages = [
