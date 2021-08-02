@@ -4,7 +4,7 @@ const pagination = require('discord.js-pagination');
 module.exports = {
     name: "help",
     description: 'Mostras os comandos atuais',
-    execute(client, message) {
+    async execute(client, message) {
         
         
         const author = message.author;
