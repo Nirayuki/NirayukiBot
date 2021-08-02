@@ -106,6 +106,10 @@ module.exports = {
             .setDescription(`Qualquer duvida entre em contato com Nira#8054`)
             .addFields([
                 {
+                    name: "Velha",
+                    value: "Um comando para jogar o jogo da velha!"
+                },
+                {
                     name: "Em construção...",
                     value: "Novos comandos em breve!"
                 }
