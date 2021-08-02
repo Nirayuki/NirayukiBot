@@ -52,25 +52,23 @@ for (const file of commandFiles) {
 
 client.on('message', message => {
 
-    if (message.content.toLowerCase() === 'fofa') {
-        message.channel.send("😳");
+    if (message.content.toLowerCase().indexOf("redsu") > -1) {
+        message.react("<:Juliet:833940824139759638>")
+        
+    }
+
+    if (message.content.toLowerCase().indexOf("fofa") > -1) {
+        message.react("😳")
     }
 
     // if ((message.content.toLowerCase().indexOf("pih") > -1) || (message.content.toLowerCase().indexOf("pietra") > -1)) {
     //     message.channel.send("<:xd123:676919679775801380>");
     // }
 
-    if (message.content.toLowerCase() === 'aron') {
-        message.channel.send(`Não, porfavor <:xorast:827327454644666378>`);
+    if (message.content.toLowerCase().indexOf("nira") > -1) {
+        message.react("<:Redsu_01:853288698938785804>")
     }
 
-    if (message.content.toLowerCase() === 'novato') {
-        message.channel.send(`Sim, apenas isso... <:pxico:826431319255941150>`);
-    }
-
-    if (message.content.toLowerCase().indexOf("redsu") > -1) {
-        message.channel.send(`<:Juliet:833940824139759638>`)
-    }
 
     const prefix = process.env.PREFIX;
     if (!message.content.startsWith(prefix) || message.author.bot) return;
