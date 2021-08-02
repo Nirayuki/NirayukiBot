@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const ytdl = require("ytdl-core-discord");
 const cron = require('cron');
 const fs = require('fs');
-const Canvas = require('canvas');
 require('dotenv/config');
 
 const client = new Discord.Client();

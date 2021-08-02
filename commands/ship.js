@@ -1,9 +1,11 @@
+const Canvas = require('canvas');
+const Discord = require('discord.js');
+
 module.exports = {
     name: "ship",
     description: 'Para shippar aquela pessoa que você gosta',
     async execute(client, message) {
-        const Canvas = require('canvas');
-        const Discord = require('discord.js');
+
         const user = message.mentions.users.first()
         const rn = Math.floor(Math.random() * 99) + 1
 
@@ -78,11 +80,11 @@ module.exports = {
                 ctx.drawImage(broken, 205, 25, 150, 150)
                 const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'love.png')
                 const embed = new Discord.MessageEmbed()
-                .setColor('#FFFFFF')
+                    .setColor('#FFFFFF')
                     .setDescription(`💔 ${message.author.username} + ${user.username} = ${rn}% 💔`)
                     .attachFiles(attachment)
                     .setImage(`attachment://love.png`)
-                return message.channel.send(`<@${user.id}>`,embed)
+                return message.channel.send(`<@${user.id}>`, embed)
                 // return message.channel.send(`💔 ${message.author.username} + ${user.username} = ${rn}% 💔`, attach)
 
             }
