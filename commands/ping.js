@@ -29,17 +29,18 @@ module.exports = {
             return message.channel.send(embed)
         }
 
-        let msg = new cron.CronJob('*/6 * * * * *', () => {
-            message.channel.send(`<@${user.id}>`)
-            .then(mesg => {
-                setTimeout(() => mesg.delete(), 1000)
-            })
-            .catch()
-        })
+        message.reply("Comando em manutenção");
+        // let msg = new cron.CronJob('*/6 * * * * *', () => {
+        //     message.channel.send(`<@${user.id}>`)
+        //     .then(mesg => {
+        //         setTimeout(() => mesg.delete(), 1000)
+        //     })
+        //     .catch()
+        // })
         
-        client.msg = msg;
+        // client.msg = msg;
 
-        client.msg.start()
+        // client.msg.start()
         
     }
 }
