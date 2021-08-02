@@ -36,10 +36,9 @@ module.exports= {
         }
 
         const filter = m => m.author.id === user.id && m.content.toLowerCase() === "joken";
-        message.channel.send(`Por favor <@${user.id}> digite \`\`joken\`\`. Você tem 5 segundos`);
-        message.channel.awaitMessages(filter, {time: 5000}).then(collected => {
-            
-            if(collected.size >= 1) {
+        message.channel.send(`Por favor <@${user.id}> digite \`\`joken\`\`.`);
+        message.channel.awaitMessages(filter, {max: 1}).then(collected => {
+
                 const me_rn = getNumber()
                 const you_rn = getNumber()
                 const me = joken[me_rn];
@@ -57,9 +56,6 @@ module.exports= {
                 if((you === '🗻' && me === '🗻') || (you === '📄' && me === '📄') || (you === '✂️' && me === '✂️')){
                     return message.channel.send(`Empatou!!!! | Resultado: ${user.username}: ${you} **vs** ${me} :${message.author.username}`)
                 }
-            } else {
-                return message.channel.send(`<@${user.id}> seu tempo acabou.`)
-            }
         }).catch(err => {
             message.channel.send("Ocorreu um erro")
         })
