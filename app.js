@@ -77,9 +77,9 @@ client.on('message', message => {
         message.react("<:Xie:846866701277593662>")
     }
 
-    // if(message.content.toLowerCase().indexOf("pih") > -1 || message.content.toLowerCase().indexOf("pietra") > -1) {
-    //     message.react("<:Xie:846866701277593662>")
-    // }
+    if(message.content.toLowerCase().indexOf("pih") > -1 || message.content.toLowerCase().indexOf("pietra") > -1) {
+        message.react("<:Bunny_blanket:853203283350650890>")
+    }
     
 
 
