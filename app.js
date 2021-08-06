@@ -69,6 +69,19 @@ client.on('message', message => {
         message.react("<:Redsu_01:853288698938785804>")
     }
 
+    if(message.content.toLowerCase().indexOf("zed") > -1) {
+        message.react("<:Zed_irritante:854079971165601803>")
+    }
+
+    if(message.content.toLowerCase().indexOf("duda") > -1) {
+        message.react("<:Xie:846866701277593662>")
+    }
+
+    // if(message.content.toLowerCase().indexOf("pih") > -1 || message.content.toLowerCase().indexOf("pietra") > -1) {
+    //     message.react("<:Xie:846866701277593662>")
+    // }
+    
+
 
     const prefix = process.env.PREFIX;
     if (!message.content.startsWith(prefix) || message.author.bot) return;
