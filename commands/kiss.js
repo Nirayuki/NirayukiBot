@@ -60,29 +60,31 @@ module.exports = {
             return message.channel.send(embed)
         }
 
-        const math = getCount()
+        message.channel.send("Comando está em manutenção")
 
-        const embed = new Discord.MessageEmbed()
-            .setColor('#FFFFFF')
-            .setDescription(`<:kimochi:813877016742723595> <@${message.author.id}> Beijou bem gostosinho <@${target.id}>`)
-            .setImage(kiss[math].link)
-            .setFooter("🔀 Clique para retribuir")
+    //     const math = getCount()
 
-        message.channel.send({ embed: embed }).then(embedMessage => {
-            embedMessage.react("🔀");
+    //     const embed = new Discord.MessageEmbed()
+    //         .setColor('#FFFFFF')
+    //         .setDescription(`<:kimochi:813877016742723595> <@${message.author.id}> Beijou bem gostosinho <@${target.id}>`)
+    //         .setImage(kiss[math].link)
+    //         .setFooter("🔀 Clique para retribuir")
 
-            message.client.on('messageReactionAdd', (reaction, user) => {
-                if ((!user.bot) && (user.id === target.id) && (reaction.emoji.name === "🔀")) {
-                    const math = getCount()
+    //     message.channel.send({ embed: embed }).then(embedMessage => {
+    //         embedMessage.react("🔀");
 
-                    const embed = new Discord.MessageEmbed()
-                        .setColor('#FFFFFF')
-                        .setDescription(`<:kimochi:813877016742723595> <@${target.id}> retribuiu bem gostosinho <@${message.author.id}>`)
-                        .setImage(kiss[math].link)
+    //         message.client.on('messageReactionAdd', (reaction, user) => {
+    //             if ((!user.bot) && (user.id === target.id) && (reaction.emoji.name === "🔀")) {
+    //                 const math = getCount()
 
-                        message.channel.send(`<@${message.author.id}> você recebeu um beijão`,embed);
-                }
-            })
-        });
+    //                 const embed = new Discord.MessageEmbed()
+    //                     .setColor('#FFFFFF')
+    //                     .setDescription(`<:kimochi:813877016742723595> <@${target.id}> retribuiu bem gostosinho <@${message.author.id}>`)
+    //                     .setImage(kiss[math].link)
+
+    //                     message.channel.send(`<@${message.author.id}> você recebeu um beijão`,embed);
+    //             }
+    //         })
+    //     });
     }
 }
