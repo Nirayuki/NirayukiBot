@@ -95,7 +95,7 @@ client.on('message', message => {
     }
 
     if(message.content.toLowerCase().indexOf("xulinha") > -1 || message.content.toLowerCase().indexOf("xuli") > -1 || message.content.toLowerCase().indexOf("julie") > -1){
-        message.react("<:bunny_blushheart:853203283031228436>")
+        message.react("<:zeroblush:853203577140412436>")
     }
     
     if(message.content.toLowerCase().indexOf("ju") > -1 || message.content.toLowerCase().indexOf("fofase") > -1){
