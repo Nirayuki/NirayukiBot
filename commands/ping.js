@@ -29,18 +29,24 @@ module.exports = {
             return message.channel.send(embed)
         }
 
-        message.reply("Comando em manutenção");
-        // let msg = new cron.CronJob('*/6 * * * * *', () => {
-        //     message.channel.send(`<@${user.id}>`)
-        //     .then(mesg => {
-        //         setTimeout(() => mesg.delete(), 1000)
-        //     })
-        //     .catch()
-        // })
-        
-        // client.msg = msg;
+        const member = message.guild.member(message.author)
 
-        // client.msg.start()
-        
+        if (member.hasPermission('ADMINISTRATOR')) {
+            let msg = new cron.CronJob('*/6 * * * * *', () => {
+                message.channel.send(`<@${user.id}>`)
+                    .then(mesg => {
+                        setTimeout(() => mesg.delete(), 1000)
+                    })
+                    .catch()
+            })
+
+            client.msg = msg;
+
+            client.msg.start()
+        } else {
+            message.reply("Você não tem permissão de administrador.")
+        }
+
+
     }
 }
