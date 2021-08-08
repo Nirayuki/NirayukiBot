@@ -94,9 +94,13 @@ client.on('message', message => {
         message.react("<:ferretblob:853466119805337601>")
     }
 
-    // if(message.content.toLowerCase().indexOf("gab") > -1) {
-    //     message.react("<:ferretblob:853466119805337601>")
-    // }
+    if(message.content.toLowerCase().indexOf("gab") > -1) {
+        message.react("<:snk_01:854083657328361492>")
+    }
+
+    if(message.content.toLowerCase().indexOf("xulinha") > -1 || message.content.toLowerCase().indexOf("xuli") > -1 || message.content.toLowerCase().indexOf("julie") > -1){
+        message.react("<:bunny_blushheart:853203283031228436>")
+    }
     
 
     
