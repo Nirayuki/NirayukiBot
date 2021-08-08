@@ -62,8 +62,7 @@ module.exports = {
                 embedMessage.react("🔀");
     
                 message.client.on('messageReactionAdd', (reaction, user) => {
-                    console.log(user.id, target.id);
-                    if ((!user.bot) && (user.id === target.id) && (reaction.emoji.name === "🔀")) {
+                    if (user.id === target.id && reaction.emoji.name === "🔀") {
                         const math = getCount()
     
                         const embed = new Discord.MessageEmbed()

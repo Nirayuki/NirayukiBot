@@ -85,6 +85,10 @@ client.on('message', message => {
     if(message.content.toLowerCase().indexOf("lyn") > -1 || message.content.toLowerCase().indexOf("bunny") > -1) {
         message.react("<:bunnyboba:853203328392495134>")
     }
+
+    if(message.content.toLowerCase().indexOf("luke") > -1) {
+        message.react("<:nazare:841869626148257792>")
+    }
     
 
 
