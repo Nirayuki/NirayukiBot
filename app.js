@@ -89,8 +89,17 @@ client.on('message', message => {
     if(message.content.toLowerCase().indexOf("luke") > -1) {
         message.react("<:nazare:841869626148257792>")
     }
+
+    if(message.content.toLowerCase().indexOf("mafiosa") > -1) {
+        message.react("<:ferretblob:853466119805337601>")
+    }
+
+    // if(message.content.toLowerCase().indexOf("gab") > -1) {
+    //     message.react("<:ferretblob:853466119805337601>")
+    // }
     
 
+    
 
     const prefix = process.env.PREFIX;
     if (!message.content.startsWith(prefix) || message.author.bot) return;
