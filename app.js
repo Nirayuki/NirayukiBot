@@ -80,6 +80,10 @@ client.on('message', message => {
     if(message.content.toLowerCase().indexOf("pih") > -1 || message.content.toLowerCase().indexOf("pietra") > -1) {
         message.react("<:Bunny_blanket:853203283350650890>")
     }
+
+    if(message.content.toLowerCase().indexOf("lyn") > -1 || message.content.toLowerCase().indexOf("bunny") > -1){
+        message.react("<:BunnyWaitForReply:834428589864255528>")
+    }
     
 
 
