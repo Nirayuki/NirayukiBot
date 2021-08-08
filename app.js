@@ -61,10 +61,6 @@ client.on('message', message => {
         message.react("😳")
     }
 
-    // if ((message.content.toLowerCase().indexOf("pih") > -1) || (message.content.toLowerCase().indexOf("pietra") > -1)) {
-    //     message.channel.send("<:xd123:676919679775801380>");
-    // }
-
     if (message.content.toLowerCase().indexOf("nira") > -1) {
         message.react("<:Redsu_01:853288698938785804>")
     }
@@ -102,6 +98,9 @@ client.on('message', message => {
         message.react("<:bunny_blushheart:853203283031228436>")
     }
     
+    if(message.content.toLowerCase().indexOf("ju") > -1 || message.content.toLowerCase().indexOf("fofase") > -1){
+        message.react("<a:sadcat:853202962363842560>")
+    }
 
     
 
