@@ -81,8 +81,9 @@ client.on('message', message => {
         message.react("<:Bunny_blanket:853203283350650890>")
     }
 
-    if(message.content.toLowerCase().indexOf("lyn") > -1 || message.content.toLowerCase().indexOf("bunny") > -1){
-        message.react("<:BunnyWaitForReply:834428589864255528>")
+
+    if(message.content.toLowerCase().indexOf("lyn") > -1 || message.content.toLowerCase().indexOf("bunny") > -1) {
+        message.react("<:bunnyboba:853203328392495134>")
     }
     
 
