@@ -77,11 +77,6 @@ client.on('message', message => {
         message.react("<:Bunny_blanket:853203283350650890>")
     }
 
-
-    // if(message.content.toLowerCase().indexOf("lyn") > -1 || message.content.toLowerCase().indexOf("bunny") > -1) {
-    //     message.react("<:bunnyboba:853203328392495134>")
-    // }
-
     if(message.content.toLowerCase().indexOf("luke") > -1) {
         message.react("<:nazare:841869626148257792>")
     }
